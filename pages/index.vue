@@ -4,19 +4,6 @@ const router = useRouter()
 
 const currentId = computed(() => route.query.id || '1')
 
-watch(
-  () => route.query.id,
-  (newId) => {
-    console.log({
-      newId,
-      id: currentId.value,
-    })
-    if (newId) {
-      currentId.value = newId
-    }
-  }
-)
-
 function updateId(newId) {
   router.push({ query: { id: newId } })
 }
@@ -25,6 +12,7 @@ function updateId(newId) {
 <template>
   <div>
     <StarWarsPerson :id="currentId" />
+    <StarWarsPersonDetails :id="currentId" />
     <SwapiInput :current-id="currentId" @update:id="updateId" />
   </div>
 </template>

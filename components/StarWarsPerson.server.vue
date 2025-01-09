@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{ id: string }>()
-
-const { data } = await useFetch(`https://swapi.py4e.com/api/people/${props.id}`)
-
+const { data } = useStarWarsPerson(props.id)
 </script>
 
 <template>

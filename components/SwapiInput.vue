@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 
-const props = defineProps({
-  currentId: {
-    type: [Number, String],
-    required: true,
-  },
-})
+const props = defineProps<{ currentId: string }>()
 
 const emit = defineEmits(['update:id'])
 
